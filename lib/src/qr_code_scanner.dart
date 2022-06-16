@@ -370,4 +370,14 @@ class QRViewController {
       }
     }
   }
+
+  Future<String> qrCodeImageScan(String filePath) async {
+    try {
+      final String data =
+          await _channel.invokeMethod('imageScan', {'file': filePath});
+      return data;
+    } catch (e) {
+      return '';
+    }
+  }
 }
