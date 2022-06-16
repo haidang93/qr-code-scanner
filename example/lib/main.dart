@@ -126,14 +126,7 @@ class _QRViewExampleState extends State<QRViewExample> {
                         margin: const EdgeInsets.all(8),
                         child: ElevatedButton(
                           onPressed: () async {
-                            // await controller?.resumeCamera();
-                            try {
-                              final sss =
-                                  await controller?.qrCodeImageScan('filePath');
-                              log(sss ?? 'ád');
-                            } catch (e) {
-                              log('$e');
-                            }
+                            await controller?.resumeCamera();
                           },
                           child: const Text('resume',
                               style: TextStyle(fontSize: 20)),

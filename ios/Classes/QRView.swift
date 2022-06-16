@@ -51,7 +51,7 @@ public class QRView:NSObject,FlutterPlatformView {
         channel.setMethodCallHandler({
             [weak self] (call: FlutterMethodCall, result: @escaping FlutterResult) -> Void in
             switch(call.method){
-                case "imageScan": 
+                 case "imageScan": 
                 guard let args = call.arguments else {
                 result("")
                 return;
@@ -92,7 +92,7 @@ public class QRView:NSObject,FlutterPlatformView {
         })
         return previewView
     }
-
+    
     func messageFromQRCodeImage(path: String) -> String? {
 
       let image: UIImage? = UIImage.init(contentsOfFile: path);
@@ -241,9 +241,10 @@ public class QRView:NSObject,FlutterPlatformView {
                     let scanError = FlutterError(code: "unknown-error", message: "Unable to start scanning", details: error)
                     result(scanError)
                 }
-            } else {
+                 } else {
                 let error = FlutterError(code: "cameraPermission", message: "Permission denied to access the camera", details: nil)
                 result(error)
+            }
             }
         })
     }
